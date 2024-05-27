@@ -1,0 +1,4 @@
+git add .
+git commit -m "primeiro commit"
+git remote add origin https://github.com/guimnou/guimnou.github.io.git
+git push -u origin main
