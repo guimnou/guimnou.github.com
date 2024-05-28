@@ -46,10 +46,11 @@ nav ul li a {
     text-decoration: none;
     color: #333; /* Preto */
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #ff6699; /* Rosa mais escuro */
 }
 
 /* Main */
@@ -79,13 +80,4 @@ footer {
 
 footer p {
     font-size: 0.8em;
-}
-
-/* Links */
-a {
-    color: #ff6699; /* Rosa mais escuro */
-}
-
-a:hover {
-    text-decoration: underline;
 }
