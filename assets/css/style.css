@@ -8,7 +8,7 @@
 /* Estilos globais */
 body {
     font-family: 'Courier New', monospace;
-    background-color: #f2f2f2; /* Alterado para branco */
+    background-color: #fff; /* Corrigido para branco */
     color: #333;
     line-height: 1.6;
 }
@@ -48,5 +48,5 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 1.2em; /* Adicionado tamanho de fonte */
+    font-size: 1.2em;
 }
