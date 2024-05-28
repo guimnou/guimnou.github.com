@@ -21,7 +21,7 @@ body {
 
 /* Header */
 header {
-    background-color: #f2dede; /* Rosa claro */
+    background-color: #fce4ec; /* Rosa claro */
     padding: 20px;
     text-align: center;
 }
@@ -53,7 +53,7 @@ nav ul li a {
 
 /* Detalhes */
 .details {
-    background-color: #eafaf4; /* Verde claro */
+    background-color: #e0f2f1; /* Verde claro */
     color: #555;
     padding: 20px;
     margin-top: 20px;
@@ -82,7 +82,7 @@ textarea {
 
 /* Estilos para os botões de formulário */
 input[type="submit"] {
-    background-color: #ff99cc; /* Rosa claro para os botões */
+    background-color: #ff85af; /* Rosa claro para os botões */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -92,7 +92,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #ff6699; /* Rosa mais claro ao passar o mouse */
+    background-color: #ff5e9e; /* Rosa mais claro ao passar o mouse */
 }
 
 /* Estilos para os alertas */
