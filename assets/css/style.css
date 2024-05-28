@@ -7,9 +7,9 @@
 
 /* Estilos globais */
 body {
-    font-family: 'Courier New', monospace; /* Fonte Courier New para o corpo */
-    background-color: #f2f2f2; /* Verde claro */
-    color: #333; /* Preto */
+    font-family: 'Courier New', monospace;
+    background-color: #f2f2f2; /* Alterado para branco */
+    color: #333;
     line-height: 1.6;
 }
 
@@ -21,17 +21,17 @@ body {
 
 /* Header */
 header {
-    background-color: #ffcccc; /* Rosa claro */
+    background-color: #ffcccc;
     padding: 20px;
     text-align: center;
 }
 
 header h1 {
-    font-family: 'Helvetica', sans-serif; /* Fonte Helvetica para o título */
+    font-family: 'Helvetica', sans-serif;
     font-weight: bold;
     font-size: 3em;
     margin-bottom: 20px;
-    color: #333; /* Preto */
+    color: #333;
 }
 
 nav ul {
@@ -46,64 +46,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333; /* Preto */
+    color: #333;
     font-weight: bold;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ff6699; /* Rosa mais escuro */
-}
-
-/* Main */
-main {
-    padding: 20px;
-    text-align: center; /* Centraliza o conteúdo */
-}
-
-.content {
-    background-color: #fff; /* Fundo branco */
-    border-radius: 10px; /* Cantos arredondados */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-main h2 {
-    font-family: 'Helvetica', sans-serif; /* Fonte Helvetica para os títulos */
-    font-weight: bold;
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333; /* Preto */
-}
-
-main p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-/* Footer */
-footer {
-    background-color: #ffffcc; /* Amarelo claro */
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-footer p {
-    font-size: 0.9em;
-    color: #666; /* Cinza escuro */
-}
-
-/* Links */
-a {
-    color: #ff6699; /* Rosa mais escuro */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #ff3366; /* Rosa mais claro */
+    font-size: 1.2em; /* Adicionado tamanho de fonte */
 }
