@@ -57,6 +57,14 @@ nav ul li a:hover {
 /* Main */
 main {
     padding: 20px;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.content {
+    background-color: #fff; /* Fundo branco */
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 main h2 {
