@@ -7,7 +7,7 @@
 
 /* Estilos globais */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Courier New', monospace; /* Fonte Courier New para o corpo */
     background-color: #f2f2f2; /* Verde claro */
     color: #333; /* Preto */
     line-height: 1.6;
@@ -27,6 +27,8 @@ header {
 }
 
 header h1 {
+    font-family: 'Helvetica', sans-serif; /* Fonte Helvetica para o título */
+    font-weight: bold;
     font-size: 3em;
     margin-bottom: 20px;
     color: #333; /* Preto */
@@ -68,6 +70,8 @@ main {
 }
 
 main h2 {
+    font-family: 'Helvetica', sans-serif; /* Fonte Helvetica para os títulos */
+    font-weight: bold;
     font-size: 2em;
     margin-bottom: 20px;
     color: #333; /* Preto */
