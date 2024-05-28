@@ -7,9 +7,9 @@
 
 /* Estilos globais */
 body {
-    font-family: 'Courier New', monospace;
-    background-color: #fff;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* Fonte delicada */
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #555; /* Cor do texto principal */
     line-height: 1.6;
 }
 
@@ -21,17 +21,17 @@ body {
 
 /* Header */
 header {
-    background-color: #ffcccc;
+    background-color: #f2dede; /* Rosa claro */
     padding: 20px;
     text-align: center;
 }
 
 header h1 {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Arial', sans-serif; /* Mantém a mesma fonte */
     font-weight: bold;
     font-size: 3em;
     margin-bottom: 20px;
-    color: #333;
+    color: #555;
 }
 
 nav ul {
@@ -46,96 +46,28 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #555;
     font-weight: bold;
     font-size: 1.2em;
 }
 
 /* Detalhes */
 .details {
-    background-color: #ecf9f1; /* Verde claro */
-    color: #333;
+    background-color: #eafaf4; /* Verde claro */
+    color: #555;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
 }
 
 .details h2 {
-    color: #333; /* Manter o título em preto para melhor legibilidade */
+    color: #555; /* Mantém o título em preto para melhor legibilidade */
 }
 
 .details p {
-    color: #666; /* Texto mais claro para melhorar o contraste */
-}
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    color: #888; /* Texto mais claro para melhorar o contraste */
 }
 
-/* Estilos globais */
-body {
-    font-family: 'Courier New', monospace;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-header {
-    background-color: #ffcccc;
-    padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    font-family: 'Helvetica', sans-serif;
-    font-weight: bold;
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-/* Detalhes */
-.details {
-    background-color: #ecf9f1; /* Verde claro */
-    color: #333;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-.details h2 {
-    color: #333; /* Manter o título em preto para melhor legibilidade */
-}
-
-.details p {
-    color: #666; /* Texto mais claro para melhorar o contraste */
-}
 /* Estilos para os elementos de formulário */
 input[type="text"],
 input[type="email"],
@@ -150,7 +82,7 @@ textarea {
 
 /* Estilos para os botões de formulário */
 input[type="submit"] {
-    background-color: #ff6699; /* Rosa escuro para os botões */
+    background-color: #ff99cc; /* Rosa claro para os botões */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -160,7 +92,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #d6518d; /* Rosa mais claro ao passar o mouse */
+    background-color: #ff6699; /* Rosa mais claro ao passar o mouse */
 }
 
 /* Estilos para os alertas */
@@ -171,7 +103,7 @@ input[type="submit"]:hover {
 }
 
 .alert-success {
-    background-color: #d7f3e3; /* Verde claro para alertas de sucesso */
+    background-color: #d5f0e3; /* Verde claro para alertas de sucesso */
     border: 1px solid #4caf50; /* Verde para borda */
     color: #4caf50; /* Verde para texto */
 }
