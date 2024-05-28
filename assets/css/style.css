@@ -81,3 +81,12 @@ footer {
 footer p {
     font-size: 0.8em;
 }
+
+/* Links */
+a {
+    color: #ff6699; /* Rosa mais escuro */
+}
+
+a:hover {
+    text-decoration: underline;
+}
