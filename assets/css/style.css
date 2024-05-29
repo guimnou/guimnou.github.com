@@ -7,28 +7,28 @@
 
 /* Global Styles */
 body {
-    font-family: 'Arial', sans-serif; /* Delicate font */
-    background-color: #f9f9f9; /* Light background */
-    color: #555; /* Main text color */
+    font-family: 'Arial', sans-serif; /* Mantém a fonte delicada */
+    background-color: #f9f9f9; /* Cor de fundo clara */
+    color: #555; /* Cor principal do texto */
     line-height: 1.6;
-    text-align: center; /* Center all text */
+    text-align: center; /* Centraliza todo o texto */
 }
 
 .container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px; /* Add padding to container */
+    padding: 20px; /* Adiciona preenchimento ao contêiner */
 }
 
 /* Header */
 header {
-    background-color: #fce4ec; /* Light pink */
+    background-color: #fce4ec; /* Rosa claro */
     padding: 20px;
     text-align: center;
 }
 
 header h1 {
-    font-family: 'Arial', sans-serif; /* Maintain the same font */
+    font-family: 'Arial', sans-serif; /* Mantém a mesma fonte */
     font-weight: bold;
     font-size: 3em;
     margin-bottom: 20px;
@@ -38,11 +38,11 @@ header h1 {
 nav ul {
     list-style: none;
     padding: 0;
-    text-align: center; /* Center the list items */
+    text-align: center; /* Centraliza os itens da lista */
 }
 
 nav ul li {
-    display: inline-block; /* Change to inline-block for better control */
+    display: inline-block; /* Muda para inline-block para melhor controle */
     margin: 0 10px;
 }
 
@@ -56,7 +56,7 @@ nav ul li a {
 /* Main Content */
 main {
     max-width: 960px;
-    margin: 20px auto; /* Center main content */
+    margin: 20px auto; /* Centraliza o conteúdo principal */
     padding: 0 20px;
 }
 
@@ -77,7 +77,7 @@ section p {
 
 /* Footer */
 footer {
-    background-color: #fce4ec; /* Light pink */
+    background-color: #fce4ec; /* Rosa claro */
     padding: 20px;
     text-align: center;
 }
@@ -94,7 +94,7 @@ footer p {
     }
 
     nav ul li {
-        display: block; /* Stack menu items vertically on smaller screens */
+        display: block; /* Empilha os itens do menu verticalmente em telas menores */
         margin: 10px 0;
     }
 }
