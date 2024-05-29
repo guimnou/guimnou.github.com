@@ -77,23 +77,7 @@ section p {
 
 /* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fce4ec; /* Rosa claro */
-    padding: 20px;
-    text-align: center;
-}
-
-footer p {
-    font-size: 1em;
-    color: #555;
-}
-
- /* Footer */
-footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -102,7 +86,6 @@ footer {
     text-align: center;
     z-index: 1000; /* Garante que o rodapé fique acima de outros elementos, se necessário */
 }
-
 
 /* Responsiveness */
 @media screen and (max-width: 768px) {
