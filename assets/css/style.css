@@ -11,12 +11,13 @@ body {
     background-color: #f9f9f9; /* Light background */
     color: #555; /* Main text color */
     line-height: 1.6;
+    text-align: center; /* Centralize all text */
 }
 
 .container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px; /* Add padding to container */
 }
 
 /* Header */
@@ -37,10 +38,11 @@ header h1 {
 nav ul {
     list-style: none;
     padding: 0;
+    text-align: center; /* Centralize the list items */
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block; /* Change to inline-block for better control */
     margin: 0 10px;
 }
 
@@ -56,28 +58,34 @@ nav ul li a {
     background-color: #e0f2f1; /* Light green */
     color: #555;
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px auto; /* Add auto margins to center */
     border-radius: 10px;
+    max-width: 90%; /* Limit the width to prevent touching edges */
 }
 
 .details h2 {
     color: #555; /* Maintain black title for better readability */
+    margin-bottom: 10px; /* Add space below heading */
 }
 
 .details p {
     color: #888; /* Lighter text for better contrast */
+    margin: 0 10px; /* Add margin to prevent text from touching the edges */
 }
 
 /* Form elements */
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%;
+    width: calc(100% - 20px); /* Adjust width to include padding */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Form buttons */
@@ -89,6 +97,8 @@ input[type="submit"] {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease; /* Add smooth transition on background color change */
+    display: block;
+    margin: 20px auto; /* Center the submit button */
 }
 
 input[type="submit"]:hover {
@@ -98,8 +108,9 @@ input[type="submit"]:hover {
 /* Alerts */
 .alert {
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 20px auto; /* Add auto margins to center */
     border-radius: 5px;
+    max-width: 90%; /* Limit the width to prevent touching edges */
 }
 
 .alert-success {
@@ -117,7 +128,7 @@ input[type="submit"]:hover {
 /* Responsiveness */
 @media screen and (max-width: 768px) {
     .container {
-        padding: 0 10px;
+        padding: 10px; /* Adjust padding for smaller screens */
     }
 
     header h1 {
