@@ -7,64 +7,42 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-      body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-        header {
-            background-color: #fce4ec;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #555;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #555;
-            font-weight: bold;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #007bff;
-        }
+        /* Estilos específicos para a página "Sobre" */
         main {
-            text-align: justify;
+            text-align: center;
             padding: 20px;
             line-height: 1.6;
+            max-width: 800px; /* Limitando a largura do conteúdo para uma melhor legibilidade */
+            margin: 0 auto; /* Centralizando o conteúdo na página */
         }
+        
         h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
             color: #007bff;
-        }
-        p {
-            font-size: 1.2em;
             margin-bottom: 20px;
-            color: #444;
         }
+        
+        p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
         footer {
             background-color: #fce4ec;
             padding: 20px;
             text-align: center;
             color: #555;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 0;
         }
     </style>
 </head>
