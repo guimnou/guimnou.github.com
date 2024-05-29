@@ -91,6 +91,18 @@ footer p {
     color: #555;
 }
 
+ /* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fce4ec; /* Rosa claro */
+    padding: 20px;
+    text-align: center;
+    z-index: 1000; /* Garante que o rodapé fique acima de outros elementos, se necessário */
+}
+
 
 /* Responsiveness */
 @media screen and (max-width: 768px) {
