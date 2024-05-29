@@ -58,9 +58,36 @@ nav ul li a {
 /* Main Content */
 main {
     max-width: 960px;
-    margin: 20px auto; /* Centraliza o conteúdo principal */
+    margin: 20px auto;
     padding: 0 20px;
+    display: grid;
+    gap: 20px;
 }
+
+.welcome,
+.latest-products,
+.events {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+.welcome h2,
+.latest-products h2,
+.events h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .welcome h2,
+    .latest-products h2,
+    .events h2 {
+        font-size: 1.5em;
+    }
+}
+
 
 /* Sections */
 section {
