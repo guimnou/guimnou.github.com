@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Meu Site de Arte</title>
+    <title>Sobre - Meu Site de Arte</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Estilos específicos para a página de produtos */
+        /* Estilos específicos para a página "Sobre" */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -54,62 +54,29 @@
         }
 
         main {
-            padding: 20px;
-        }
-
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .product {
-            width: 300px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 800px; /* Limitando a largura do conteúdo para uma melhor legibilidade */
+            margin: 0 auto; /* Centralizando o conteúdo na página */
         }
 
-        .product img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .product h3 {
+        h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .product p {
-            color: #666;
+            font-size: 36px;
+            color: #ff69b4; /* Rosa */
             margin-bottom: 20px;
         }
 
-        .buy-button {
-            background-color: #ff69b4;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .buy-button:hover {
-            background-color: #d1509e;
+        p {
+            font-size: 18px;
+            color: #555; /* Cor de texto mais escura */
+            margin-bottom: 20px;
         }
 
         footer {
-            background-color: #ff69b4;
+            background-color: #ff69b4; /* Rosa */
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -125,7 +92,7 @@
 </head>
 <body>
     <header>
-        <h1>Meu Site de Arte</h1>
+        <h1>Conheça minha Arte</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
@@ -135,27 +102,14 @@
             </ul>
         </nav>
     </header>
-
-    <main class="container">
-        <section class="products">
-            <div class="product">
-                <img src="caminho/para/imagem1.jpg" alt="Produto 1">
-                <h3>Produto 1</h3>
-                <p>Descrição do produto 1.</p>
-                <button class="buy-button" data-product-id="1" data-price="10.00">Comprar</button>
-            </div>
-
-            <div class="product">
-                <img src="caminho/para/imagem2.jpg" alt="Produto 2">
-                <h3>Produto 2</h3>
-                <p>Descrição do produto 2.</p>
-                <button class="buy-button" data-product-id="2" data-price="15.00">Comprar</button>
-            </div>
-
-            <!-- Adicione mais produtos conforme necessário -->
-        </section>
+    <main>
+        <h2>Sobre</h2>
+        <p>Olá! Sou um artista apaixonado por transformar ideias em imagens que despertam emoções e reflexões.</p>
+        <p>Cada obra que crio é como uma história contada através das cores, formas e texturas. É uma maneira de compartilhar minhas experiências e visões de mundo com você.</p>
+        <p>Não vejo minhas criações apenas como produtos, mas como pontes para conectar pessoas e culturas.</p>
+        <p>Elas estão presentes em galerias, eventos e também nas redes sociais, alcançando corações e mentes em todo o mundo.</p>
+        <p>Convido você a se juntar a mim nessa jornada de descoberta e expressão. Explore minhas obras, deixe-se levar pela imaginação e descubra o que a arte pode revelar sobre você mesmo.</p>
     </main>
-
     <footer>
         <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
     </footer>
