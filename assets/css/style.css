@@ -88,7 +88,6 @@ main {
     }
 }
 
-
 /* Sections */
 section {
     margin-bottom: 40px;
@@ -120,17 +119,7 @@ footer p {
     font-size: 1em;
     color: #555;
 }
-/* Responsiveness */
-@media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
 
-    nav ul li {
-        display: block; /* Empilha os itens do menu verticalmente em telas menores */
-        margin: 10px 0;
-    }
-}
 /* Products */
 .products {
     display: grid;
@@ -173,6 +162,7 @@ footer p {
 .buy-button:hover {
     background-color: #0056b3;
 }
+
 /* Product Grid */
 .product-grid {
     display: grid;
