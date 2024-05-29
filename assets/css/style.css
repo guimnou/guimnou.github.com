@@ -173,3 +173,24 @@ footer p {
 .buy-button:hover {
     background-color: #0056b3;
 }
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Event Grid */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .product-grid,
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}
