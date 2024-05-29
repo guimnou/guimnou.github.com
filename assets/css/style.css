@@ -7,11 +7,13 @@
 
 /* Global Styles */
 body {
-    font-family: 'Arial', sans-serif; /* Mantém a fonte delicada */
+    font-family: 'Arial', sans-serif; /* Fonte delicada */
     background-color: #f9f9f9; /* Cor de fundo clara */
     color: #555; /* Cor principal do texto */
     line-height: 1.6;
     text-align: center; /* Centraliza todo o texto */
+    position: relative; /* Importante para o posicionamento do rodapé */
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da janela de visualização */
 }
 
 .container {
@@ -87,6 +89,10 @@ footer {
     z-index: 1000; /* Garante que o rodapé fique acima de outros elementos, se necessário */
 }
 
+footer p {
+    font-size: 1em;
+    color: #555;
+}
 /* Responsiveness */
 @media screen and (max-width: 768px) {
     header h1 {
