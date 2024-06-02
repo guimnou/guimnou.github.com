@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Meu Site de Arte</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos específicos para a página de contato */
         body {
@@ -82,6 +81,38 @@
             color: #0056b3;
         }
 
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ff1493;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #ff69b4;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #d1509e;
+        }
+
         footer {
             background-color: #ff69b4;
             color: #fff;
@@ -113,11 +144,13 @@
         <h2>Contato</h2>
         <p>Quer conversar sobre arte ou tem alguma dúvida?</p>
         <p>Entre em contato por:</p>
-        <p>
-            E-mail: <a href="mailto:pradocarrielguilherme@gmail.com">pradocarrielguilherme@gmail.com</a> <br>
-            Instagram: <a href="https://www.instagram.com/guimnou">@guimnou</a> <br>
-            WhatsApp: <a href="https://wa.me/5513996041845">(13) 99604-1845</a>
-        </p>
+        <div class="contact-info">
+            <a href="mailto:pradocarrielguilherme@gmail.com">pradocarrielguilherme@gmail.com</a>
+            <a href="https://wa.me/5513996041845">(13) 99604-1845</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/guimnou" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
