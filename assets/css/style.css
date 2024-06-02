@@ -53,6 +53,11 @@ nav ul li a {
     color: #fff;
     font-weight: bold;
     font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff1493;
 }
 
 /* Main Content */
@@ -62,31 +67,6 @@ main {
     padding: 0 20px;
 }
 
-.welcome,
-.latest-products,
-.events {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.welcome h2,
-.latest-products h2,
-.events h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-/* Responsiveness */
-@media screen and (max-width: 768px) {
-    .welcome h2,
-    .latest-products h2,
-    .events h2 {
-        font-size: 1.5em;
-    }
-}
-
-/* Sections */
 section {
     margin-bottom: 40px;
 }
@@ -94,6 +74,7 @@ section {
 section h2 {
     font-size: 2em;
     margin-bottom: 20px;
+    color: #ff69b4;
 }
 
 section p {
@@ -118,33 +99,44 @@ footer p {
 }
 
 /* Products */
-.products {
+.products,
+.events {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-}
-
-.product {
-    background-color: #fff;
-    padding: 20px;
     text-align: center;
 }
 
-.product img {
+.product,
+.event {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.product img,
+.event img {
     width: 100%;
     max-width: 200px;
     height: auto;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-.product h3 {
+.product h3,
+.event h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #555;
 }
 
-.product p {
+.product p,
+.event p {
     font-size: 1em;
     margin-bottom: 10px;
+    color: #777;
 }
 
 .buy-button {
@@ -154,24 +146,30 @@ footer p {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .buy-button:hover {
     background-color: #d1509e;
 }
 
-/* Product Grid */
-.product-grid,
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
 /* Responsiveness */
 @media screen and (max-width: 768px) {
-    .product-grid,
-    .event-grid {
+    .products,
+    .events {
         grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    section p {
+        font-size: 1em;
     }
 }
