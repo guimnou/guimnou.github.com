@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Meu Site de Arte</title>
+    <title>Sobre - Meu Site de Arte</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Ícones do Font Awesome -->
     <style>
@@ -63,7 +63,7 @@
             text-align: center;
         }
 
-        .products {
+        .about {
             background-color: #fff;
             padding: 20px;
             margin-bottom: 40px;
@@ -71,67 +71,29 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .products h2 {
+        .about h2 {
             color: #f8b6c1;
             margin-top: 0;
             text-align: center;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
-        .product {
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            transition: transform 0.3s ease;
+        .about h2 i {
+            margin-right: 10px;
         }
 
-        .product img {
-            max-width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .product h3 {
+        .about p {
             color: #333;
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 20px;
         }
 
-        .product p {
+        .quote {
+            font-style: italic;
             color: #666;
-            margin-bottom: 10px;
-        }
-
-        .action-button {
-            background-color: #ff69b4;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-button:hover {
-            background-color: #d1509e;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-        }
-
-        .product img:hover {
-            transform: scale(1.05);
+            margin-bottom: 20px;
         }
 
         footer {
@@ -164,8 +126,8 @@
 
 <main class="container">
     <section class="about">
-        <h2>Sobre</h2>
-        <p>Olá! Eu sou [Seu Nome], um artista apaixonado por transformar ideias em obras de arte.</p>
+        <h2><i class="fas fa-user"></i> Sobre</h2>
+        <p>Olá! Eu sou Guilherme, um artista apaixonado por transformar ideias em obras de arte.</p>
         <p>Minhas criações refletem minhas experiências, emoções e visões de mundo. Cada obra conta uma história única.</p>
         <p>Meu objetivo é inspirar e emocionar pessoas através da minha arte, criando conexões e despertando reflexões.</p>
         <p class="quote">"A arte é a expressão mais pura da alma humana."</p>
