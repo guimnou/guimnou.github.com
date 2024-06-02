@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Meu Site de Arte</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos específicos para a página de produtos */
         body {
@@ -68,16 +67,26 @@
             width: 300px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais definida */
             margin: 20px;
             padding: 20px;
             text-align: center;
+            transition: transform 0.3s ease; /* Transição suave */
+        }
+
+        .product:hover {
+            transform: translateY(-5px); /* Efeito de levantamento ao passar o mouse */
         }
 
         .product img {
             max-width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
+            transition: transform 0.3s ease; /* Transição suave */
+        }
+
+        .product img:hover {
+            transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
         }
 
         .product h3 {
