@@ -125,10 +125,29 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         footer p {
             margin: 0;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: transform 0.3s ease; /* Transição suave */
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
         }
     </style>
 </head>
