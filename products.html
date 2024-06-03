@@ -226,22 +226,21 @@
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
 
-<script>
-    function addToCart(name, price) {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        cartItems.push({ name, price });
-        localStorage.setItem('cart', JSON.stringify(cartItems));
-        alert(`${name} foi adicionado ao carrinho!`);
-    }
+function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cartItems.length;
+}
 
-    document.querySelectorAll('.buy-button').forEach(button => {
-        button.addEventListener('click', function () {
-            const productName = this.dataset.productName;
-            const productPrice = parseFloat(this.dataset.price);
-            addToCart(productName, productPrice);
-        });
-    });
-</script>
+function addToCart(name, price) {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    cartItems.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    alert(`${name} foi adicionado ao carrinho!`);
+    updateCartCount();
+}
+
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
 
     <div class="cart-icon">
     <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
