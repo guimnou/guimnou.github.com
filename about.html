@@ -159,18 +159,6 @@ function updateCartCount() {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     document.getElementById('cart-count').textContent = cartItems.length;
 }
-
-function addToCart(name, price) {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    cartItems.push({ name, price });
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-    alert(`${name} foi adicionado ao carrinho!`);
-    updateCartCount();
-}
-
-document.addEventListener('DOMContentLoaded', updateCartCount);
-
-
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
