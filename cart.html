@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Estilos gerais */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -133,19 +132,6 @@
             background-color: #d1509e;
         }
 
-        .remove-button {
-            color: #ff69b4;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .remove-button:hover {
-            color: #d1509e;
-        }
-
         footer {
             background-color: #f8b6c1;
             color: #fff;
@@ -199,8 +185,8 @@
         cartItems.forEach(item => {
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `<p>${item.name}</p><p>R$${item.price.toFixed(2)}</p><button class="
-                        const removeButton = document.createElement('button');
+            cartItem.innerHTML = `<p>${item.name}</p><p>R$${item.price.toFixed(2)}</p>`;
+            const removeButton = document.createElement('button');
             removeButton.classList.add('remove-button');
             removeButton.innerHTML = '<i class="fas fa-times"></i>';
             removeButton.addEventListener('click', () => removeItem(item.name));
@@ -237,4 +223,3 @@
 </script>
 </body>
 </html>
-
