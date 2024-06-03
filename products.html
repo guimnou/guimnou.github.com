@@ -206,5 +206,22 @@
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
+    <script>
+    function addToCart(name, price) {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItems.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        alert(`${name} foi adicionado ao carrinho!`);
+    }
+
+    document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function () {
+            const productName = this.dataset.productName;
+            const productPrice = parseFloat(this.dataset.price);
+            addToCart(productName, productPrice);
+        });
+    });
+</script>
+
 </body>
 </html>
