@@ -222,6 +222,14 @@
         </div>
     </section>
 </main>
+    document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const productName = this.dataset.productName;
+        const productPrice = parseFloat(this.dataset.price);
+        addToCart(productName, productPrice);
+    });
+});
+
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
