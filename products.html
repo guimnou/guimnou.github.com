@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Meu Site de Arte</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Estilos gerais */
         body {
@@ -183,7 +183,7 @@
 
         <div class="product">
             <img src="caminho/para/imagem3.jpg" alt="Produto 3">
-            <h3>Produto 3</h3>
+            <h3>Produto 3">
             <p>Descrição do produto 3.</p>
             <button class="buy-button" data-product-name="Produto 3" data-price="20.00">Comprar</button>
         </div>
@@ -206,7 +206,8 @@
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
-    <script>
+
+<script>
     function addToCart(name, price) {
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         cartItems.push({ name, price });
@@ -222,6 +223,5 @@
         });
     });
 </script>
-
 </body>
 </html>
