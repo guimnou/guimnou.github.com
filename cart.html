@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        /* Estilos gerais */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -132,6 +133,19 @@
             background-color: #d1509e;
         }
 
+        .remove-button {
+            color: #ff69b4;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .remove-button:hover {
+            color: #d1509e;
+        }
+
         footer {
             background-color: #f8b6c1;
             color: #fff;
@@ -185,13 +199,35 @@
         cartItems.forEach(item => {
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `<p>${item.name}</p><p>R$${item.price.toFixed(2)}</p>`;
+            cartItem.innerHTML = `<p>${item.name}</p><p>R$${item.price.toFixed(2)}</p><button class="
+                        const removeButton = document.createElement('button');
+            removeButton.classList.add('remove-button');
+            removeButton.innerHTML = '<i class="fas fa-times"></i>';
+            removeButton.addEventListener('click', () => removeItem(item.name));
+            cartItem.appendChild(removeButton);
             cartList.appendChild(cartItem);
         });
     }
 
+    function removeItem(name) {
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItems = cartItems.filter(item => item.name !== name);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        updateCartCount();
+        displayCartItems();
+    }
+
     function checkout() {
-        window.location.href = 'checkout.html';
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cartItems.length > 0) {
+            // Aqui você pode adicionar a lógica para finalizar a compra
+            alert('Compra finalizada! Obrigado por comprar conosco.');
+            localStorage.removeItem('cart');
+            updateCartCount();
+            displayCartItems();
+        } else {
+            alert('Seu carrinho está vazio. Adicione itens antes de finalizar a compra.');
+        }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -201,3 +237,4 @@
 </script>
 </body>
 </html>
+
