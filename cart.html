@@ -60,6 +60,7 @@
         main {
             padding: 20px;
             text-align: center;
+            min-height: calc(100vh - 190px); /* Ajuste para manter o footer no final da página */
         }
 
         .checkout {
@@ -126,49 +127,36 @@
 
         .thank-you {
             display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
+            background-color: #fff;
             padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
         }
 
-        .thank-you-content {
+        .thank-you h2 {
+            color: #f8b6c1;
+            margin-top: 0;
             text-align: center;
         }
 
-        .confirm-button {
-            background-color: #ff69b4;
+        .thank-you p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #f8b6c1;
             color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
-        .confirm-button:hover {
-            background-color: #d1509e;
-        }
-
-        .remove-button {
-            background-color: #ff6b6b;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .remove-button:hover {
-            background-color: #ff5252;
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
@@ -249,8 +237,8 @@
         background-color: #d1509e;
     }
 
-    .remove-item {
-        background-color: #f44336;
+    .remove-item-button {
+        background-color: #ff3333;
         color: #fff;
         border: none;
         padding: 5px 10px;
@@ -260,8 +248,8 @@
         transition: background-color 0.3s ease;
     }
 
-    .remove-item:hover {
-        background-color: #b71c1c;
+    .remove-item-button:hover {
+        background-color: #cc0000;
     }
 </style>
 
@@ -277,13 +265,11 @@
         cartItems.forEach((item, index) => {
             const listItem = document.createElement('li');
             listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
-            
             const removeButton = document.createElement('button');
-            removeButton.classList.add('remove-item');
+            removeButton.className = 'remove-item-button';
             removeButton.innerText = 'Remover';
             removeButton.onclick = () => removeItem(index);
             listItem.appendChild(removeButton);
-
             orderSummary.appendChild(listItem);
             total += item.price;
         });
@@ -304,3 +290,6 @@
 
     document.addEventListener('DOMContentLoaded', displayOrderSummary);
 </script>
+</body>
+</html>
+
