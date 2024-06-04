@@ -248,6 +248,21 @@
     .confirm-button:hover {
         background-color: #d1509e;
     }
+
+    .remove-item {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .remove-item:hover {
+        background-color: #b71c1c;
+    }
 </style>
 
 <script>
@@ -259,14 +274,27 @@
         orderSummary.innerHTML = '';
         let total = 0;
 
-        cartItems.forEach(item => {
+        cartItems.forEach((item, index) => {
             const listItem = document.createElement('li');
             listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
+            
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('remove-item');
+            removeButton.innerText = 'Remover';
+            removeButton.onclick = () => removeItem(index);
+            listItem.appendChild(removeButton);
+
             orderSummary.appendChild(listItem);
             total += item.price;
         });
 
         totalAmount.innerText = total.toFixed(2);
+    }
+
+    function removeItem(index) {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        displayOrderSummary();
     }
 
     function showThankYou() {
