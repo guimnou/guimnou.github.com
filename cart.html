@@ -124,6 +124,26 @@
             margin-bottom: 5px;
         }
 
+        .thank-you {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .thank-you h2 {
+            color: #f8b6c1;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .thank-you p {
+            margin-bottom: 10px;
+        }
+
         footer {
             background-color: #f8b6c1;
             color: #fff;
@@ -168,8 +188,14 @@
                 <p>2. Após realizar o pagamento, envie o comprovante para nosso e-mail: seuemail@example.com</p>
                 <p>3. Assim que o pagamento for confirmado, enviaremos a arte digital para o seu e-mail.</p>
             </div>
+            <button id="confirm-button" class="checkout-details button" onclick="showThankYou()">Confirmar</button>
         </div>
     </section>
+    <div class="thank-you" id="thank-you">
+        <h2>Obrigado pela compra!</h2>
+        <p>Nós recebemos seu pedido. Por favor, poste sobre sua compra nas redes sociais e nos marque. Sua satisfação é nossa prioridade!</p>
+        <p>#ArteFeliz #MeuSiteDeArte</p>
+    </div>
 </main>
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
@@ -180,21 +206,4 @@
 
     function displayOrderSummary() {
         const orderSummary = document.getElementById('order-summary');
-        const totalAmount = document.getElementById('total-amount');
-        orderSummary.innerHTML = '';
-        let total = 0;
-
-        cartItems.forEach(item => {
-            const listItem = document.createElement('li');
-            listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
-            orderSummary.appendChild(listItem);
-            total += item.price;
-        });
-
-        totalAmount.innerText = total.toFixed(2);
-    }
-
-    document.addEventListener('DOMContentLoaded', displayOrderSummary);
-</script>
-</body>
-</html>
+        const totalAmount
