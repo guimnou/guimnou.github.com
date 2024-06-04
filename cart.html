@@ -1,9 +1,9 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras</title>
+    <title>Finalizar Compra</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -67,7 +67,7 @@
             padding: 20px;
         }
 
-        .cart {
+        .checkout {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -75,13 +75,13 @@
             margin-bottom: 40px;
         }
 
-        .cart h2 {
+        .checkout h2 {
             color: #f8b6c1;
             margin-top: 0;
             text-align: center;
         }
 
-        .cart-item {
+        .checkout-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,47 +89,44 @@
             border-bottom: 1px solid #ccc;
         }
 
-        .cart-item:last-child {
+        .checkout-item:last-child {
             border-bottom: none;
         }
 
-        .cart-item h3 {
+        .checkout-item h3 {
             margin: 0;
         }
 
-        .cart-item p {
+        .checkout-item p {
             margin: 0;
             color: #666;
         }
 
-        .cart-item .item-price {
+        .checkout-item .item-price {
             font-weight: 700;
             color: #333;
         }
 
-        .cart-item button {
-            background-color: #ff69b4;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .cart-item button:hover {
-            background-color: #d1509e;
-        }
-
-        .cart-summary {
+        .checkout-summary {
             text-align: right;
             font-size: 20px;
             font-weight: 700;
             margin-top: 20px;
         }
 
-        .checkout-button {
+        .checkout-instructions {
+            background-color: #ffebcc;
+            padding: 10px;
+            border: 1px solid #ffcc00;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .checkout-instructions p {
+            margin: 10px 0;
+        }
+
+        .confirm-button {
             display: block;
             background-color: #ff69b4;
             color: #fff;
@@ -144,7 +141,7 @@
             width: 200px;
         }
 
-        .checkout-button:hover {
+        .confirm-button:hover {
             background-color: #d1509e;
         }
 
@@ -176,11 +173,19 @@
     </nav>
 </header>
 <main>
-    <section class="cart">
-        <h2>Carrinho de Compras</h2>
-        <div id="cart-items"></div>
-        <div class="cart-summary">Total: <span id="cart-total">R$ 0,00</span></div>
-        <a href="checkout.html" class="checkout-button">Finalizar Compra</a>
+    <section class="checkout">
+        <h2>Resumo do Pedido</h2>
+        <div id="checkout-items"></div>
+        <div class="checkout-summary">Total: <span id="checkout-total">R$ 0,00</span></div>
+        <div class="checkout-instructions">
+            <h3>Instruções para Pagamento</h3>
+            <p>Por favor, faça o pagamento via PIX para o seguinte QR Code ou chave PIX:</p>
+            <p><strong>Chave PIX:</strong> exemplo@meusitedearte.com</p>
+            <p>Após realizar o pagamento, envie o comprovante para nosso e-mail:</p>
+            <p><strong>Email:</strong> exemplo@meusitedearte.com</p>
+            <p>Seu pedido será processado assim que recebermos o comprovante de pagamento.</p>
+        </div>
+        <button class="confirm-button" onclick="confirmPurchase()">Confirmar Compra</button>
     </section>
 </main>
 <footer>
@@ -188,37 +193,34 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', loadCartItems);
+    document.addEventListener('DOMContentLoaded', loadCheckoutItems);
 
-    function loadCartItems() {
+    function loadCheckoutItems() {
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartItemsContainer = document.getElementById('cart-items');
+        const checkoutItemsContainer = document.getElementById('checkout-items');
         let total = 0;
 
-        cartItemsContainer.innerHTML = '';
+        checkoutItemsContainer.innerHTML = '';
 
-        cartItems.forEach((item, index) => {
+        cartItems.forEach((item) => {
             const itemElement = document.createElement('div');
-            itemElement.classList.add('cart-item');
+            itemElement.classList.add('checkout-item');
             itemElement.innerHTML = `
                 <div>
                     <h3>${item.name}</h3>
                     <p>R$ <span class="item-price">${item.price.toFixed(2)}</span></p>
                 </div>
-                <button onclick="removeFromCart(${index})">Remover</button>
             `;
-            cartItemsContainer.appendChild(itemElement);
+            checkoutItemsContainer.appendChild(itemElement);
             total += item.price;
         });
 
-        document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+        document.getElementById('checkout-total').textContent = `R$ ${total.toFixed(2)}`;
     }
 
-    function removeFromCart(index) {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        cartItems.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cartItems));
-        loadCartItems();
+    function confirmPurchase() {
+        localStorage.removeItem('cart');
+        alert('Compra confirmada! Por favor, siga as instruções para completar o pagamento.');
     }
 </script>
 </body>
