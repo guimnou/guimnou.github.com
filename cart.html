@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Compra</title>
+    <title>Finalizar Compra - Meu Site de Arte</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Estilos gerais */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -20,7 +19,6 @@
             background-color: #f8b6c1;
             padding: 20px;
             text-align: center;
-            position: relative;
         }
 
         header h1 {
@@ -59,20 +57,17 @@
             color: #ff69b4;
         }
 
-        nav ul li a.active {
-            color: #ff69b4;
-        }
-
         main {
             padding: 20px;
+            text-align: center;
         }
 
         .checkout {
             background-color: #fff;
             padding: 20px;
+            margin-bottom: 40px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
         }
 
         .checkout h2 {
@@ -81,56 +76,52 @@
             text-align: center;
         }
 
-        .checkout-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .checkout-details {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .checkout-details p {
+            margin-bottom: 10px;
+        }
+
+        .checkout-details input {
+            width: 100%;
             padding: 10px;
-            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        .checkout-item:last-child {
-            border-bottom: none;
-        }
-
-        .checkout-item h3 {
-            margin: 0;
-        }
-
-        .checkout-item p {
-            margin: 0;
-            color: #666;
-        }
-
-        .checkout-item .item-price {
-            font-weight: 700;
-            color: #333;
-        }
-
-        .checkout-summary {
-            text-align: right;
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 20px;
-        }
-
-        .confirm-button {
-            display: block;
+        .checkout-details button {
             background-color: #ff69b4;
             color: #fff;
             border: none;
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin: 20px auto;
-            text-align: center;
-            text-decoration: none;
-            width: 200px;
+            transition: background-color 0.3s ease;
+            width: 100%;
         }
 
-        .confirm-button:hover {
+        .checkout-details button:hover {
             background-color: #d1509e;
+        }
+
+        .payment-instructions {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .payment-instructions h3 {
+            color: #f8b6c1;
+            margin-bottom: 10px;
+        }
+
+        .payment-instructions p {
+            margin-bottom: 5px;
         }
 
         footer {
@@ -162,10 +153,22 @@
 </header>
 <main>
     <section class="checkout">
-        <h2>Resumo do Pedido</h2>
-        <div id="checkout-items"></div>
-        <div class="checkout-summary">Total: <span id="checkout-total">R$ 0,00</span></div>
-        <button class="confirm-button" onclick="confirmPurchase()">Confirmar Compra</button>
+        <h2>Finalizar Compra</h2>
+        <div class="checkout-details">
+            <h3>Detalhes do Pedido:</h3>
+            <ul id="order-summary">
+                <!-- Resumo do pedido será inserido aqui -->
+            </ul>
+            <h3>Instruções de Pagamento:</h3>
+            <div class="payment-instructions">
+                <p>1. Faça um PIX para o seguinte destinatário:</p>
+                <p><strong>Chave PIX:</strong> seuemail@example.com</p>
+                <p><strong>Nome:</strong> Seu Nome Completo</p>
+                <p><strong>Valor:</strong> R$ <span id="total-amount">0.00</span></p>
+                <p>2. Após realizar o pagamento, envie o comprovante para nosso e-mail: seuemail@example.com</p>
+                <p>3. Assim que o pagamento for confirmado, enviaremos a arte digital para o seu e-mail.</p>
+            </div>
+        </div>
     </section>
 </main>
 <footer>
@@ -173,36 +176,25 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', loadCheckoutItems);
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-    function loadCheckoutItems() {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        const checkoutItemsContainer = document.getElementById('checkout-items');
+    function displayOrderSummary() {
+        const orderSummary = document.getElementById('order-summary');
+        const totalAmount = document.getElementById('total-amount');
+        orderSummary.innerHTML = '';
         let total = 0;
 
-        checkoutItemsContainer.innerHTML = '';
-
-        cartItems.forEach((item) => {
-            const itemElement = document.createElement('div');
-            itemElement.classList.add('checkout-item');
-            itemElement.innerHTML = `
-                <div>
-                    <h3>${item.name}</h3>
-                    <p>R$ <span class="item-price">${item.price.toFixed(2)}</span></p>
-                </div>
-            `;
-            checkoutItemsContainer.appendChild(itemElement);
+        cartItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
+            orderSummary.appendChild(listItem);
             total += item.price;
         });
 
-        document.getElementById('checkout-total').textContent = `R$ ${total.toFixed(2)}`;
+        totalAmount.innerText = total.toFixed(2);
     }
 
-    function confirmPurchase() {
-        alert('Compra confirmada! Obrigado por comprar conosco.');
-        localStorage.removeItem('cart');
-        window.location.href = 'products.html';
-    }
+    document.addEventListener('DOMContentLoaded', displayOrderSummary);
 </script>
 </body>
 </html>
