@@ -192,14 +192,35 @@
         <button onclick="showThankYou()">Confirmar</button>
     </section>
     <section class="thank-you" id="thank-you">
-        <h2>Obrigado pela compra!</h2>
-        <p>Nós recebemos seu pedido e em breve estaremos processando-o. Por favor, poste sua compra em suas redes sociais e nos marque!</p>
-        <p>Fique de olho no seu e-mail para atualizações sobre o status do seu pedido.</p>
+        <div class="thank-you-content">
+            <h2>Obrigado pela compra!</h2>
+            <p>Nós recebemos seu pedido e em breve estaremos processando-o. Por favor, poste sua compra em suas redes sociais e nos marque!</p>
+            <p>Fique de olho no seu e-mail para atualizações sobre o status do seu pedido.</p>
+        </div>
     </section>
 </main>
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
+
+<style>
+    .thank-you {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .thank-you-content {
+        text-align: center;
+    }
+</style>
 
 <script>
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -227,5 +248,3 @@
 
     document.addEventListener('DOMContentLoaded', displayOrderSummary);
 </script>
-</body>
-</html>
