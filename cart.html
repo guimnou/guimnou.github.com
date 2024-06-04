@@ -126,36 +126,49 @@
 
         .thank-you {
             display: none;
-            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
             padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
-        .thank-you h2 {
-            color: #f8b6c1;
-            margin-top: 0;
+        .thank-you-content {
             text-align: center;
         }
 
-        .thank-you p {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #f8b6c1;
+        .confirm-button {
+            background-color: #ff69b4;
             color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        footer p {
-            margin: 0;
+        .confirm-button:hover {
+            background-color: #d1509e;
+        }
+
+        .remove-button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-button:hover {
+            background-color: #ff5252;
         }
     </style>
 </head>
@@ -171,33 +184,6 @@
         </ul>
     </nav>
 </header>
-<main>
-    <section class="checkout">
-        <h2>Finalizar Compra</h2>
-        <div class="checkout-details">
-            <h3>Detalhes do Pedido:</h3>
-            <ul id="order-summary">
-                <!-- Resumo do pedido será inserido aqui -->
-            </ul>
-            <h3>Instruções de Pagamento:</h3>
-            <div class="payment-instructions">
-                <p>1. Faça um PIX para o seguinte destinatário:</p>
-                <p><strong>Chave PIX:</strong> seuemail@example.com</p>
-                <p><strong>Nome:</strong> Seu Nome Completo</p>
-                <p><strong>Valor:</strong> R$ <span id="total-amount">0.00</span></p>
-                <p>2. Após realizar o pagamento, envie o comprovante para nosso e-mail: seuemail@example.com</p>
-                <p>3. Assim que o pagamento for confirmado, enviaremos a arte digital para o seu e-mail.</p>
-            </div>
-        </div>
-        <button onclick="showThankYou()">Confirmar</button>
-    </section>
-    <section class="thank-you" id="thank-you">
-        <div class="thank-you-content">
-            <h2>Obrigado pela compra!</h2>
-            <p>Nós recebemos seu pedido e em breve estaremos processando-o. Por favor, poste sua compra em suas redes sociais e nos marque!</p>
-            <p>Fique de olho no seu e-mail para atualizações sobre o status do seu pedido.</p>
-        </div>
-    </section>
 <main>
     <section class="checkout">
         <h2>Finalizar Compra</h2>
