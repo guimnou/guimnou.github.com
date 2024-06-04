@@ -114,18 +114,6 @@
             margin-top: 20px;
         }
 
-        .checkout-instructions {
-            background-color: #ffebcc;
-            padding: 10px;
-            border: 1px solid #ffcc00;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .checkout-instructions p {
-            margin: 10px 0;
-        }
-
         .confirm-button {
             display: block;
             background-color: #ff69b4;
@@ -177,14 +165,6 @@
         <h2>Resumo do Pedido</h2>
         <div id="checkout-items"></div>
         <div class="checkout-summary">Total: <span id="checkout-total">R$ 0,00</span></div>
-        <div class="checkout-instructions">
-            <h3>Instruções para Pagamento</h3>
-            <p>Por favor, faça o pagamento via PIX para o seguinte QR Code ou chave PIX:</p>
-            <p><strong>Chave PIX:</strong> exemplo@meusitedearte.com</p>
-            <p>Após realizar o pagamento, envie o comprovante para nosso e-mail:</p>
-            <p><strong>Email:</strong> exemplo@meusitedearte.com</p>
-            <p>Seu pedido será processado assim que recebermos o comprovante de pagamento.</p>
-        </div>
         <button class="confirm-button" onclick="confirmPurchase()">Confirmar Compra</button>
     </section>
 </main>
@@ -219,8 +199,9 @@
     }
 
     function confirmPurchase() {
+        alert('Compra confirmada! Obrigado por comprar conosco.');
         localStorage.removeItem('cart');
-        alert('Compra confirmada! Por favor, siga as instruções para completar o pagamento.');
+        window.location.href = 'products.html';
     }
 </script>
 </body>
