@@ -188,14 +188,14 @@
                 <p>2. Após realizar o pagamento, envie o comprovante para nosso e-mail: seuemail@example.com</p>
                 <p>3. Assim que o pagamento for confirmado, enviaremos a arte digital para o seu e-mail.</p>
             </div>
-            <button id="confirm-button" class="checkout-details button" onclick="showThankYou()">Confirmar</button>
         </div>
+        <button onclick="showThankYou()">Confirmar</button>
     </section>
-    <div class="thank-you" id="thank-you">
+    <section class="thank-you" id="thank-you">
         <h2>Obrigado pela compra!</h2>
-        <p>Nós recebemos seu pedido. Por favor, poste sobre sua compra nas redes sociais e nos marque. Sua satisfação é nossa prioridade!</p>
-        <p>#ArteFeliz #MeuSiteDeArte</p>
-    </div>
+        <p>Nós recebemos seu pedido e em breve estaremos processando-o. Por favor, poste sua compra em suas redes sociais e nos marque!</p>
+        <p>Fique de olho no seu e-mail para atualizações sobre o status do seu pedido.</p>
+    </section>
 </main>
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
@@ -206,4 +206,26 @@
 
     function displayOrderSummary() {
         const orderSummary = document.getElementById('order-summary');
-        const totalAmount
+        const totalAmount = document.getElementById('total-amount');
+        orderSummary.innerHTML = '';
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
+            orderSummary.appendChild(listItem);
+            total += item.price;
+        });
+
+        totalAmount.innerText = total.toFixed(2);
+    }
+
+    function showThankYou() {
+        const thankYouSection = document.getElementById('thank-you');
+        thankYouSection.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', displayOrderSummary);
+</script>
+</body>
+</html>
