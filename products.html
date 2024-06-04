@@ -20,6 +20,7 @@
             background-color: #f8b6c1;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
@@ -147,25 +148,25 @@
             bottom: 0;
             width: 100%;
         }
+
         .cart-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    color: #fff;
-}
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #fff;
+        }
 
-.cart-icon span {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #ff69b4;
-    color: #fff;
-    border-radius: 50%;
-    padding: 2px 8px;
-    font-size: 14px;
-}
-
+        .cart-icon span {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff69b4;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+        }
 
         footer p {
             margin: 0;
@@ -183,6 +184,9 @@
             <li><a href="contact.html"><i class="fas fa-envelope"></i> Contato</a></li>
         </ul>
     </nav>
+    <div class="cart-icon">
+        <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+    </div>
 </header>
 <main>
     <section class="products">
@@ -202,7 +206,7 @@
 
         <div class="product">
             <img src="caminho/para/imagem3.jpg" alt="Produto 3">
-            <h3>Produto 3">
+            <h3>Produto 3</h3>
             <p>Descrição do produto 3.</p>
             <button class="buy-button" data-product-name="Produto 3" data-price="20.00">Comprar</button>
         </div>
@@ -222,34 +226,33 @@
         </div>
     </section>
 </main>
-    document.querySelectorAll('.buy-button').forEach(button => {
-    button.addEventListener('click', function () {
-        const productName = this.dataset.productName;
-        const productPrice = parseFloat(this.dataset.price);
-        addToCart(productName, productPrice);
-    });
-});
-
 <footer>
     <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
 </footer>
 
-function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    document.getElementById('cart-count').textContent = cartItems.length;
-}
+<script>
+    document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function () {
+            const productName = this.dataset.productName;
+            const productPrice = parseFloat(this.dataset.price);
+            addToCart(productName, productPrice);
+        });
+    });
 
-function addToCart(name, price) {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    cartItems.push({ name, price });
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-    alert(`${name} foi adicionado ao carrinho!`);
-    updateCartCount();
-}
+    function updateCartCount() {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cartItems.length;
+    }
 
-    <div class="cart-icon">
-    <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
-</div>
+    function addToCart(name, price) {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItems.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        alert(`${name} foi adicionado ao carrinho!`);
+        updateCartCount();
+    }
 
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
 </body>
 </html>
