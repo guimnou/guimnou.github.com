@@ -298,53 +298,54 @@
 </div>
 
 <script>
-    // Função para abrir modal de produto
-    function openProductModal(title, imageSrc, description) {
-        document.getElementById('product-modal-title').textContent = title;
-        document.getElementById('product-modal-image').src = imageSrc;
-        document.getElementById('product-modal-description').textContent = description;
-        document.getElementById('product-modal').style.display = 'block';
+    // Função para abrir modal
+    function openModal(title, imageSrc, description) {
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalDescription = document.getElementById('modal-description');
+
+        modalTitle.textContent = title;
+        modalImage.src = imageSrc;
+        modalDescription.textContent = description;
+
+        document.getElementById('modal').style.display = 'block';
     }
 
-    // Função para abrir modal de evento
-    function openEventModal(title, imageSrc, description) {
-        document.getElementById('event-modal-title').textContent = title;
-        document.getElementById('event-modal-image').src = imageSrc;
-        document.getElementById('event-modal-description').textContent = description;
-        document.getElementById('event-modal').style.display = 'block';
+    // Fechar modal
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
     }
 
-    // Fechar modais ao clicar no "X"
-    document.querySelectorAll('.close').forEach(item => {
-        item.addEventListener('click', event => {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
+    // Event listener para fechar modal ao clicar no "X" ou fora do modal
+    document.querySelectorAll('.close, .modal').forEach(element => {
+        element.addEventListener('click', event => {
+            if (event.target === element) {
+                closeModal();
+            }
         });
     });
 
-    // Funções para abrir modais ao clicar nos botões "Ver Detalhes" e "Saiba Mais"
-    document.querySelectorAll('.product .action-button').forEach(item => {
-        item.addEventListener('click', event => {
+    // Event listeners para abrir o modal correspondente ao clicar nos botões "Ver Detalhes" e "Saiba Mais"
+    document.querySelectorAll('.product .action-button').forEach(button => {
+        button.addEventListener('click', event => {
             const product = event.target.closest('.product');
             const title = product.querySelector('h3').textContent;
             const imageSrc = product.querySelector('img').src;
             const description = product.querySelector('p').textContent;
-            openProductModal(title, imageSrc, description);
+            openModal(title, imageSrc, description);
         });
     });
 
-    document.querySelectorAll('.event .action-button').forEach(item => {
-        item.addEventListener('click', event => {
+    document.querySelectorAll('.event .action-button').forEach(button => {
+        button.addEventListener('click', event => {
             const eventItem = event.target.closest('.event');
             const title = eventItem.querySelector('h3').textContent;
             const imageSrc = eventItem.querySelector('img').src;
             const description = eventItem.querySelector('p').textContent;
-            openEventModal(title, imageSrc, description);
+            openModal(title, imageSrc, description);
         });
     });
 </script>
-
 
 </body>
 </html>
