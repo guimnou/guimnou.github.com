@@ -298,6 +298,7 @@
 </div>
 
 <script>
+    // Função para abrir modal de produto
     function openProductModal(title, imageSrc, description) {
         document.getElementById('product-modal-title').textContent = title;
         document.getElementById('product-modal-image').src = imageSrc;
@@ -305,6 +306,7 @@
         document.getElementById('product-modal').style.display = 'block';
     }
 
+    // Função para abrir modal de evento
     function openEventModal(title, imageSrc, description) {
         document.getElementById('event-modal-title').textContent = title;
         document.getElementById('event-modal-image').src = imageSrc;
@@ -312,6 +314,7 @@
         document.getElementById('event-modal').style.display = 'block';
     }
 
+    // Fechar modais ao clicar no "X"
     document.querySelectorAll('.close').forEach(item => {
         item.addEventListener('click', event => {
             document.querySelectorAll('.modal').forEach(modal => {
@@ -320,6 +323,7 @@
         });
     });
 
+    // Funções para abrir modais ao clicar nos botões "Ver Detalhes" e "Saiba Mais"
     document.querySelectorAll('.product .action-button').forEach(item => {
         item.addEventListener('click', event => {
             const product = event.target.closest('.product');
@@ -332,14 +336,15 @@
 
     document.querySelectorAll('.event .action-button').forEach(item => {
         item.addEventListener('click', event => {
-            const event = event.target.closest('.event');
-            const title = event.querySelector('h3').textContent;
-            const imageSrc = event.querySelector('img').src;
-            const description = event.querySelector('p').textContent;
+            const eventItem = event.target.closest('.event');
+            const title = eventItem.querySelector('h3').textContent;
+            const imageSrc = eventItem.querySelector('img').src;
+            const description = eventItem.querySelector('p').textContent;
             openEventModal(title, imageSrc, description);
         });
     });
 </script>
+
 
 </body>
 </html>
