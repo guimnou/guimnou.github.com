@@ -194,6 +194,7 @@
             <img src="caminho/para/imagem1.jpg" alt="Produto 1">
             <h3>Produto 1</h3>
             <p>Descrição do produto 1.</p>
+            <p class="price">Preço: R$10.00</p>
             <button class="buy-button" data-product-name="Produto 1" data-price="10.00">Comprar</button>
         </div>
 
@@ -201,6 +202,7 @@
             <img src="caminho/para/imagem2.jpg" alt="Produto 2">
             <h3>Produto 2</h3>
             <p>Descrição do produto 2.</p>
+            <p class="price">Preço: R$15.00</p>
             <button class="buy-button" data-product-name="Produto 2" data-price="15.00">Comprar</button>
         </div>
 
@@ -208,6 +210,7 @@
             <img src="caminho/para/imagem3.jpg" alt="Produto 3">
             <h3>Produto 3</h3>
             <p>Descrição do produto 3.</p>
+            <p class="price">Preço: R$20.00</p>
             <button class="buy-button" data-product-name="Produto 3" data-price="20.00">Comprar</button>
         </div>
 
@@ -215,6 +218,7 @@
             <img src="caminho/para/imagem4.jpg" alt="Produto 4">
             <h3>Produto 4</h3>
             <p>Descrição do produto 4.</p>
+            <p class="price">Preço: R$25.00</p>
             <button class="buy-button" data-product-name="Produto 4" data-price="25.00">Comprar</button>
         </div>
 
@@ -222,6 +226,7 @@
             <img src="caminho/para/imagem5.jpg" alt="Produto 5">
             <h3>Produto 5</h3>
             <p>Descrição do produto 5.</p>
+            <p class="price">Preço: R$30.00</p>
             <button class="buy-button" data-product-name="Produto 5" data-price="30.00">Comprar</button>
         </div>
     </section>
@@ -236,6 +241,12 @@
             const productName = this.dataset.productName;
             const productPrice = parseFloat(this.dataset.price);
             addToCart(productName, productPrice);
+
+            // Mostrar o preço após o botão "Comprar"
+            const priceParagraph = this.parentNode.querySelector('.price');
+            if (priceParagraph) {
+                priceParagraph.textContent = `Preço: R$${productPrice.toFixed(2)}`;
+            }
         });
     });
 
