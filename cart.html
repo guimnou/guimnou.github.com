@@ -246,12 +246,14 @@
         updateCartDisplay();
     }
 
-    // Eventos
-    document.getElementById('confirmButton').addEventListener('click', function () {
-        document.getElementById('thankYouMessage').style.display = 'block';
+    function finalizePurchase() {
+        alert("Compra finalizada com sucesso!");
         localStorage.removeItem('cartItems'); // Limpa o carrinho após a compra
         updateCartDisplay();
-    });
+    }
+
+    // Eventos
+    document.getElementById('confirmButton').addEventListener('click', finalizePurchase);
 
     // Eventos delegados para remover itens
     document.getElementById('orderSummary').addEventListener('click', function(event) {
