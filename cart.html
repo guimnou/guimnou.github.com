@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        /* Seu CSS permanece o mesmo */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -60,13 +61,14 @@
         main {
             padding: 20px;
             text-align: center;
-            min-height: calc(100vh - 190px); /* Ajuste para manter o footer no final da página */
+            min-height: calc(100vh - 190px);
         }
 
         .checkout {
             background-color: #fff;
             padding: 20px;
-            margin-bottom: 40px;
+            margin: 20px auto;
+            max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -74,28 +76,28 @@
         .checkout h2 {
             color: #f8b6c1;
             margin-top: 0;
-            text-align: center;
         }
 
-        .checkout-details {
-            text-align: left;
-            margin: 20px auto;
-            max-width: 500px;
+        .order-summary {
+            list-style-type: none;
+            padding: 0;
         }
 
-        .checkout-details p {
-            margin-bottom: 10px;
+        .order-summary li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
         }
 
-        .checkout-details input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
         }
 
-        .checkout-details button {
+        .confirm-button {
             background-color: #ff69b4;
             color: #fff;
             border: none;
@@ -104,35 +106,41 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            width: 100%;
+            margin-top: 20px;
         }
 
-        .checkout-details button:hover {
+        .confirm-button:hover {
             background-color: #d1509e;
         }
 
-        .payment-instructions {
-            margin-top: 20px;
-            text-align: left;
+        .remove-item-button {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .payment-instructions h3 {
-            color: #f8b6c1;
-            margin-bottom: 10px;
-        }
-
-        .payment-instructions p {
-            margin-bottom: 5px;
+        .remove-item-button:hover {
+            background-color: #cc0000;
         }
 
         .thank-you {
             display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: #fff;
             padding: 20px;
             margin: 20px auto;
             max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
         .thank-you h2 {
@@ -161,135 +169,77 @@
     </style>
 </head>
 <body>
-<header>
-    <h1>Meu Site de Arte</h1>
+    <header>
+        <h1>Meu Site de Arte</h1>
+    </header>
     <nav>
         <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
-            <li><a href="products.html"><i class="fas fa-palette"></i> Produtos</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contato</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Sobre</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
         </ul>
     </nav>
-</header>
-<main>
-    <section class="checkout">
-        <h2>Finalizar Compra</h2>
-        <div class="checkout-details">
-            <h3>Detalhes do Pedido:</h3>
-            <ul id="order-summary">
-                <!-- Resumo do pedido será inserido aqui -->
-            </ul>
-            <h3>Instruções de Pagamento:</h3>
-            <div class="payment-instructions">
-                <p>1. Faça um PIX para o seguinte destinatário:</p>
-                <p><strong>Chave PIX:</strong> seuemail@example.com</p>
-                <p><strong>Nome:</strong> Seu Nome Completo</p>
-                <p><strong>Valor:</strong> R$ <span id="total-amount">0.00</span></p>
-                <p>2. Após realizar o pagamento, envie o comprovante para nosso e-mail: seuemail@example.com</p>
-                <p>3. Assim que o pagamento for confirmado, enviaremos a arte digital para o seu e-mail.</p>
-            </div>
+    <main>
+        <div class="checkout">
+            <h2>Finalizar Compra</h2>
+            <ul class="order-summary" id="orderSummary"></ul>
+            <p class="total" id="totalPrice">Total: R$0.00</p>
+            <button class="confirm-button" id="confirmButton">Confirmar Compra</button>
         </div>
-        <button class="confirm-button" onclick="showThankYou()">Confirmar</button>
-    </section>
-    <section class="thank-you" id="thank-you">
-        <div class="thank-you-content">
-            <h2>Obrigado pela compra!</h2>
-            <p>Nós recebemos seu pedido e em breve estaremos processando-o. Por favor, poste sua compra em suas redes sociais e nos marque!</p>
-            <p>Fique de olho no seu e-mail para atualizações sobre o status do seu pedido.</p>
+        <div class="thank-you" id="thankYouMessage">
+            <h2>Obrigado pela sua compra!</h2>
+            <p>Seu pedido foi confirmado com sucesso.</p>
         </div>
-    </section>
-</main>
-<footer>
-    <p>&copy; 2024 guimnou. Todos os direitos reservados.</p>
-</footer>
+    </main>
+    <footer>
+        <p>&copy; 2024 Meu Site de Arte. Todos os direitos reservados.</p>
+    </footer>
 
-<style>
-    .thank-you {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
+    <script>
+        // Funções para manipulação do carrinho
+        function getCartItems() {
+            return JSON.parse(localStorage.getItem('cartItems')) || [];
+        }
 
-    .thank-you-content {
-        text-align: center;
-    }
+        function saveCartItems(items) {
+            localStorage.setItem('cartItems', JSON.stringify(items));
+        }
 
-    .confirm-button {
-        background-color: #ff69b4;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+        function displayOrderSummary() {
+            const orderSummary = document.getElementById('orderSummary');
+            const totalPriceElement = document.getElementById('totalPrice');
+            let total = 0;
+            orderSummary.innerHTML = ''; // Limpa a lista antes de reexibir
 
-    .confirm-button:hover {
-        background-color: #d1509e;
-    }
+            const cartItems = getCartItems();
 
-    .remove-item-button {
-        background-color: #ff3333;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        font-size: 14px;
-        border-radius: 3px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+            cartItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${item.name} - R$${item.price.toFixed(2)} <button class="remove-item-button" onclick="removeItem(${index})">Remover</button>`;
+                orderSummary.appendChild(listItem);
+                total += item.price;
+            });
 
-    .remove-item-button:hover {
-        background-color: #cc0000;
-    }
-</style>
+            totalPriceElement.textContent = `Total: R$${total.toFixed(2)}`;
+        }
 
-<script>
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        function removeItem(index) {
+            const cartItems = getCartItems();
+            cartItems.splice(index, 1);
+            saveCartItems(cartItems);
+            displayOrderSummary();
+        }
 
-    function displayOrderSummary() {
-        const orderSummary = document.getElementById('order-summary');
-        const totalAmount = document.getElementById('total-amount');
-        orderSummary.innerHTML = '';
-        let total = 0;
-
-        cartItems.forEach((item, index) => {
-            const listItem = document.createElement('li');
-            listItem.innerText = `${item.name} - R$${item.price.toFixed(2)}`;
-            const removeButton = document.createElement('button');
-            removeButton.className = 'remove-item-button';
-            removeButton.innerText = 'Remover';
-            removeButton.onclick = () => removeItem(index);
-            listItem.appendChild(removeButton);
-            orderSummary.appendChild(listItem);
-            total += item.price;
+        // Eventos
+        document.getElementById('confirmButton').addEventListener('click', function () {
+            document.getElementById('thankYouMessage').style.display = 'block';
+            localStorage.removeItem('cartItems'); // Limpa o carrinho após a compra
+            displayOrderSummary();
         });
 
-        totalAmount.innerText = total.toFixed(2);
-    }
-
-    function removeItem(index) {
-        cartItems.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cartItems));
-        displayOrderSummary();
-    }
-
-    function showThankYou() {
-        const thankYouSection = document.getElementById('thank-you');
-        thankYouSection.style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', displayOrderSummary);
-</script>
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', displayOrderSummary);
+    </script>
 </body>
 </html>
-
